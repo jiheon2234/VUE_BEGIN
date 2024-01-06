@@ -1,9 +1,25 @@
 <template>
-  <h1>TODO 앱</h1>
+  <h1>{{ title  }}</h1>
+  <h4>{{ newTitle }}</h4>
 </template>
 
 <script>
-export default {};
+import { computed } from 'vue';
+
+export default {
+  props : {
+    title : String
+  }
+  ,
+  setup(props){
+    const newTitle = computed(
+      () =>{
+        return props.title + '!!!';
+      }
+    )
+    return {newTitle}
+  }
+};
 </script>
 
 <style scoped></style>
